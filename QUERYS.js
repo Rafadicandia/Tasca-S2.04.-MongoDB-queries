@@ -40,12 +40,20 @@ db.restaurant.find({"cuisine": { $ne: 'American'}, "grades.score": { $gt: 70 }, 
 db.restaurant.find({"cuisine": { $ne: 'American'}, "grades.score": { $gt: 70 }, "address.coord.0": { $lt: -65.754168} })
 
 //Escribe una consulta para encontrar a los restaurantes que no preparan ninguna cuisine de 'American' y obtuvieron un punto de grado 'A' no pertenece a Brooklyn. Se debe mostrar el documento según la cuisine en orden descendente.
-
+db.restaurant.find({"cuisine": { $ne: 'American'}, "grades.grade": 'A', "borough": { $ne: "Brooklyn" }}).sort({"cuisine": -1})
 
 //Escribe una consulta para encontrar el restaurante_id, name, borough y cuisine para aquellos restaurantes que contienen 'Wil' como las tres primeras letras en su nombre.
+db.restaurant.find({"name": {$regex: "^Wil"}},{"restaurant_id": 1, "name": 1, "borough": 1, "cuisine": 1, "_id": 0})
+
 //Escribe una consulta para encontrar el restaurante_id, name, borough y cuisine para aquellos restaurantes que contienen 'ces' como las últimas tres letras en su nombre.
+
+
 //Escribe una consulta para encontrar el restaurante_id, name, borough y cuisine para aquellos restaurantes que contienen 'Reg' como tres letras en algún sitio en su nombre.
+
+
 //Escribe una consulta para encontrar los restaurantes que pertenecen al Bronx y prepararon cualquier plato americano o chino.
+
+
 //Escribe una consulta para encontrar el restaurant_id, nombre, distrito y tipo de cocina de aquellos restaurantes que pertenecen a Staten Island, Queens, Bronx o Brooklyn.
 //Escriba una consulta para encontrar el restaurant_id, nombre, distrito y tipo de cocina de aquellos restaurantes que no pertenecen a Staten Island, Queens, Bronx o Brooklyn.
 //Escribe una consulta para encontrar restaurante_id, name, borough y cuisine para aquellos restaurantes que consigan un marcador que no es más de 10.
