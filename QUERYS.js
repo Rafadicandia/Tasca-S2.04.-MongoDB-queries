@@ -23,9 +23,13 @@ db.restaurant.find({"borough": "Bronx"}).skip(5).limit(5)
 
 
 //Escribe una consulta para encontrar los restaurantes que tienen un resultado además de 90.
+db.restaurant.find({"grades.score": { $gt: 90 }})
 
 
 //Escribe una consulta para encontrar los restaurantes que tienen un resultado además de 80 pero menos que 100.
+db.restaurant.find({"grades.score": { $gt: 80, $lt: 100  }})
+
+
 //Escribe una consulta para encontrar a los restaurantes que se localizan en valor de latitud menos de -95.754168.
 //Escribe una consulta de MongoDB para encontrar los restaurantes que no preparan ninguna cuisine de 'American' y su calificación es superior a 70 y longitud inferior a -65.754168.
 //Escribe una consulta para encontrar a los restaurantes que no preparan ninguna cuisine de 'American' y consiguieron un marcador más de 70 y localizado en la longitud menos que -65.754168. Nota : Realiza esta consulta sin utilizar $and operador.
