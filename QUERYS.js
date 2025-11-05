@@ -57,6 +57,8 @@ db.restaurant.find({"borough": "Bronx", $or: [{"cuisine": "American"}, {"cuisine
 
 
 //Escribe una consulta para encontrar el restaurant_id, nombre, distrito y tipo de cocina de aquellos restaurantes que pertenecen a Staten Island, Queens, Bronx o Brooklyn.
+db.restaurant.find({"borough": { $in: ["Staten Island", "Queens", "Bronx", "Brooklyn"] },{"restaurant_id": 1, "name": 1, "borough": 1, "cuisine": 1, "_id": 0})
+
 //Escriba una consulta para encontrar el restaurant_id, nombre, distrito y tipo de cocina de aquellos restaurantes que no pertenecen a Staten Island, Queens, Bronx o Brooklyn.
 //Escribe una consulta para encontrar restaurante_id, name, borough y cuisine para aquellos restaurantes que consigan un marcador que no es más de 10.
 //Escribe una consulta para encontrar el restaurante_id, name, borough y cuisine para aquellos restaurantes que preparan pescado excepto 'American' y 'Chinees' o el name del restaurante comienza con letras 'Wil'.
