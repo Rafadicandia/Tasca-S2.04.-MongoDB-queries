@@ -19,6 +19,7 @@ db.restaurant.find({"borough": "Bronx"}).limit(5)
 
 
 //Escribe una consulta para mostrar el próximo 5 restaurantes después de saltar los primeros 5 del Bronx.
+db.restaurant.find({"borough": "Bronx"}).skip(5).limit(5)
 
 
 //Escribe una consulta para encontrar los restaurantes que tienen un resultado además de 90.
