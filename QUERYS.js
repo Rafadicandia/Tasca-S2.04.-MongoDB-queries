@@ -8,7 +8,7 @@ db.restaurant.find({},{"restaurant_id": 1, "name": 1, "borough": 1, "cuisine": 1
 db.restaurant.find({},{"restaurant_id": 1, "name": 1, "borough": 1, "cuisine": 1, "_id": 0})
 
 //Escribe una consulta para mostrar restaurant_id, name, borough y zip code, pero excluye el campo _id para todos los documentos en la colección Restaurantes.
-
+db.restaurant.find({},{"restaurant_id": 1, "name": 1, "borough": 1, "address.zipcode": 1, "_id": 0})
 
 //Escribe una consulta para mostrar todos los restaurantes que están en el Bronx.
 
