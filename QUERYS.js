@@ -80,11 +80,16 @@ db.restaurant.find({}).sort({"name": -1})
 db.restaurant.find({}).sort({ "cuisine": 1, "borough": -1 })
 
 //Escribe una consulta para saber todas las direcciones que no contienen la calle.
-db.restaurant.find({"address.street": {"$exists": false}}, {})
+db.restaurant.find({"address.street": {$exists: false}}, {})
 
 //Escribe una consulta que seleccionará todos los documentos en la colección de restaurantes cuyo valor del campo coord es Double.
-
+db.restaurant.find({"address.coord": {$type: "double"}}, {})
 
 //Escribe una consulta que seleccionará el restaurante_id, name y grade para aquellos restaurantes que devuelvan 0 como resto después de dividir el marcador por 7.
+db.restaurant.find({"grades.score": {$mod: [7, 0]}},{"restaurant_id": 1, "name": 1, "grade": 1, "_id": 0})
+
 //Escribe una consulta para encontrar el name de restaurante, borough, longitud y altitud y cuisine para aquellos restaurantes que contienen 'mon' como tres letras en algún sitio de su nombre.
+db.restaurant.find("name": {$regex: ".*mon.*"}},{"name": 1, "borough": 1, "cuisine": 1, "address.coord": 1, "_id": 0})
+
 //Escribe una consulta para encontrar el name de restaurante, borough, longitud y latitud y cuisine para aquellos restaurantes que contienen 'Mad' como primeras tres letras de su nombre.
+db.restaurant.find({"name": {$regex: "^Mad"}},{"name": 1, "borough": 1, "cuisine": 1, "address.coord": 1, "_id": 0})
