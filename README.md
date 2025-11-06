@@ -81,11 +81,7 @@ This section details how to set up and run the MongoDB server that was used to p
     This command starts the server in detached mode (`-d`), assigns a name (`my-mongo-db`), maps port `27017`, and connects the `mongodata` volume to Mongo's internal data folder (`/data/db`).
 
     ```bash 
-    docker run -d \
-    --name mi-mongo-db \
-    -p 27017:27017 \
-    -v mongodata:/data/db \  
-    mongo
+    docker run -d --name mi-mongo-db -p 27017:27017 -v mongodata:/data/db mongo
     ```
 
 4.  **Verification:**
